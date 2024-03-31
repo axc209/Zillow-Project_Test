@@ -1,6 +1,5 @@
 import aiohttp
 import pandas as pd
-import requests
 
 
 async def fetch_data(session, location, page):
@@ -201,8 +200,6 @@ df.dtypes
 
 """
 
-"""
-
 
 ######################################
 MORE PROPERTY DETAILS
@@ -210,8 +207,6 @@ MORE PROPERTY DETAILS
 
 
 """
-
-
 # details = response.json()
 # dets = pd.json_normalize(details)
 

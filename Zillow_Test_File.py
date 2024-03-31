@@ -1,7 +1,5 @@
-import asyncio
 import aiohttp
 import pandas as pd
-import time
 
 
 async def fetch_data(session, location, page):
@@ -664,8 +662,6 @@ final_clean[["associationFee_amount", "associationFee_text"]] = final_clean[
 final_clean["associationFee_amount"] = pd.to_numeric(
     final_clean["associationFee_amount"], errors="coerce"
 )
-
-import pytz
 
 # List of columns to convert
 columns_seconds_to_date = [

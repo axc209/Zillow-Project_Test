@@ -1,5 +1,6 @@
 import aiohttp
 import pandas as pd
+import requests
 
 
 async def fetch_data(session, location, page):

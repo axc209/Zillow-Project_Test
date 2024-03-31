@@ -1,6 +1,7 @@
 import aiohttp
 import pandas as pd
 
+
 async def fetch_data(session, location, page):
     url = "https://zillow56.p.rapidapi.com/search"
     querystring = {
@@ -193,7 +194,14 @@ CLEAN PROPERTY DETAILS
 
 """
 
-from columns_config import keep_columns, drop_list, drop_list_1, columnns_containing_lists, columns_to_expand, drop_list_2
+from columns_config import (
+    keep_columns,
+    drop_list,
+    drop_list_1,
+    columnns_containing_lists,
+    columns_to_expand,
+    drop_list_2,
+)
 
 # Drop all columns with blanks
 Clean_Details = normalized_details.dropna(axis=1, how="all")
@@ -239,6 +247,7 @@ def expand_list_of_dicts_col(Clean_Details, col_name):
     else:
         return pd.DataFrame()
 
+
 # Initialize an empty DataFrame to hold all expanded columns
 expanded_data = pd.DataFrame(index=df.index)
 
@@ -272,6 +281,7 @@ def safe_eval(val):
         # Return None or some default value in case of error
         return None
 
+
 # Initialize an empty DataFrame to store the binary columns
 binary_columns_df = pd.DataFrame(index=final_clean.index)
 
@@ -296,7 +306,9 @@ for col in columnns_containing_lists:
         binary_columns_df = binary_columns_df.join(dummies, how="outer")
 
 # Now, concatenate the binary columns DataFrame with the original df, dropping the original list columns for simplicity
-final_clean = final_clean.drop(columns=columnns_containing_lists).join(binary_columns_df)
+final_clean = final_clean.drop(columns=columnns_containing_lists).join(
+    binary_columns_df
+)
 
 final_clean.drop(columns=drop_list_2, inplace=True)
 

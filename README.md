@@ -1,6 +1,6 @@
-# Project Title
+# Zillow
 
-EXTRACTING ZILLOW HOUSING DATA & PREDICTION OF PRICE
+Extracting Zillow housing data and running classical models for housing prediction
 
 ## Prerequisites
 
